@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+  
+<suite name="ChatComponentAutomationScript" verbose="1" >
+  <test name="SendTextFunctionality">
+    <classes>
+      <class name="TestCase.TC001_VerifyBoldText"/>
+      <class name="TestCase.TC002_VerifyItallicText"/>
+      <class name="TestCase.TC003_VerifyStrikeThroughText"/>
+      <class name="TestCase.TC004_VerifyPlainText"/>
+    </classes>
+  </test>
+</suite>
