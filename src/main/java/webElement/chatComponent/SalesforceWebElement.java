@@ -37,25 +37,24 @@ public class SalesforceWebElement {
 	// for the send message button 
 	@FindBy(xpath="//button[normalize-space()='Send']")
 	public WebElement sendButton;
-	
-	
-	
+
 	// for the phone combobox
 	@FindBy(xpath="//span[normalize-space()='Select phone number']")
 	public WebElement phoneNumCombobox;
 	
-	@FindBy(xpath="//button[@id='combobox-button-87']")
+	// for phone dropdown
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div/one-record-home-flexipage2/forcegenerated-adg-rollup_component___force-generated__flexipage_-record-page___-contact_-record_-page2___-contact___-v-i-e-w/forcegenerated-flexipage_contact_record_page2_contact__view_js/record_flexipage-desktop-record-page-decorator/div[1]/records-record-layout-event-broker/slot/slot/flexipage-record-home-template-desktop2/div/div[2]/div[1]/slot/flexipage-component2[1]/slot/c-chat-component/div/div/div[2]/div[1]/div/lightning-combobox/div/div/lightning-base-combobox/div/div/div[1]/button")
 	public WebElement phoneDropDown;
 
-	@FindBy(xpath="//lightning-base-combobox-item[@id='combobox-button-87-0-87']//span[@class='slds-media__body']//span")
+	// for phone dropdown value
+	@FindBy(xpath="//span[@title='Asst. Phone']")
 	public WebElement assttPhone;
-	
-	
 	
 	// for the text area
 	@FindBy(xpath="//div[@class='slds-rich-text-area__content slds-grow slds-text-color-weak standin']")
 	public WebElement textBox;
 	
+	// for text area placeholder
 	@FindBy(xpath="//div[@role='textbox']//p") 
 	public WebElement enterTextPlaceholder;
 
