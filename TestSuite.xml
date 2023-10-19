@@ -3,10 +3,10 @@
 <suite name="ChatComponentAutomationScript" verbose="1" >
   <test name="SendTextFunctionality">
     <classes>
-      <class name="TestCase.TC001_VerifyBoldText"/>
-      <class name="TestCase.TC002_VerifyItallicText"/>
-      <class name="TestCase.TC003_VerifyStrikeThroughText"/>
-      <class name="TestCase.TC004_VerifyPlainText"/>
+      <class name="testCase.chatComponent.TC001_VerifyBoldText"/>
+      <class name="testCase.chatComponent.TC002_VerifyItallicText"/>
+      <class name="testCase.chatComponent.TC003_VerifyStrikeThroughText"/>
+      <class name="testCase.chatComponent.TC004_VerifyPlainText"/>
     </classes>
   </test>
 </suite>
