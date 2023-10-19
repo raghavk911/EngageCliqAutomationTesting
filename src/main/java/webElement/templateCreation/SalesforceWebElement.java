@@ -1,6 +1,7 @@
 package webElement.templateCreation;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,15 +29,17 @@ public class SalesforceWebElement {
 	public WebElement newButton;
 		
 	// Name Text Box
-	@FindBy(xpath="//input[@id='input-137']")
+	//@FindBy(xpath="//input[@class='slds-input']")
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div/c-create-template/lightning-modal-body/div/slot/div/div[2]/div[2]/span/lightning-input[1]/lightning-primitive-input-simple/div/div/input")
 	public WebElement nameTextBox;
 	
 	// Description Text Box
-	@FindBy(xpath="//input[@id='input-139']")
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div/c-create-template/lightning-modal-body/div/slot/div/div[2]/div[2]/span/lightning-input[2]/lightning-primitive-input-simple/div/div/input")
+	//@FindBy(xpath="input[@id='input-64']")
 	public WebElement descTextBox;
 	
 	// Target Object Text Box
-	@FindBy(xpath="//input[@id='input-141']")
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div/c-create-template/lightning-modal-body/div/slot/div/div[2]/div[2]/span/lightning-input[3]/lightning-primitive-input-simple/div/div/input")
 	public WebElement tarObjTextBox;
 	
 	// Next Button
@@ -44,11 +47,9 @@ public class SalesforceWebElement {
 	public WebElement nextNewTempBtn;
 	
 	// Select Contact in dropdown combobox
-	@FindBy(xpath="//span[normalize-space()='Contact']")
-	public WebElement selectComboboxValue;
-	//@FindBy(xpath="//button[@id='combobox-button-418']/span[@class='slds-truncate'][normalize-space(text()='First Name')]")
-	//button[@id='combobox-button-418']/span[@class='slds-truncate'][normalize-space(text()='First Name')]
-	
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div/c-create-template/lightning-modal-body/div/slot/div/div[2]/div[2]/span/div/div[2]/div/lightning-formatted-rich-text/span")
+	public WebElement selectComboboxObj;
+
 	// Select Whatsapp as communication channel
 	@FindBy(xpath="//a[normalize-space()='Add']")
 	public WebElement whatsAppCommChannel;
@@ -65,13 +66,9 @@ public class SalesforceWebElement {
 	@FindBy(xpath="//span[normalize-space()='Source Attribute']")
 	public WebElement attributeName;
 	
-	// Select Attribute Name text field value
-	//@FindBy(xpath="//lightning-base-combobox-item[@id='combobox-button-444-11-444']//span[@class='slds-media__body']//span[@title='First Name']")
-	//button[@id='combobox-button-412']//span[@class='slds-truncate'][normalize-space()='First Name']
-
-	//@FindBy(xpath="//button[@id='combobox-button-412']//span[@class='slds-truncate'][normalize-space()='First Name']")
-	@FindBy(xpath="(//span[@class='slds-truncate'][normalize-space()='Last Name'])[1]")
-	public WebElement attributeNameValue;
+	//Select attribute Name
+	@FindBy(xpath="//span[@title='Asst. Phone']")
+	public WebElement attrName;
 	
 	// Insert Attribute Button
 	@FindBy(xpath="//button[normalize-space()='Insert Attribute']")
@@ -81,6 +78,37 @@ public class SalesforceWebElement {
 	@FindBy(xpath="//div[@class='slds-rich-text-area__content slds-grow slds-text-color-weak standin']")
 	public WebElement textBoxWATmp;
 	
+	// Click WhatsApp Template next button
+	@FindBy(xpath="(//button[normalize-space()='Next'])[1]")
+	public WebElement nextBtnWATmp;
+	
+	// Click Text Radio button 
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/c-create-whats-app-template/lightning-modal-body/div/slot/div/div[2]/div[1]/div[1]/div/lightning-radio-group/fieldset/div/span[2]/label/span[1]")
+	public WebElement txtRadioBtn;
+
+	// Send text in enter text field on WhatsApp Template  
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/c-create-whats-app-template/lightning-modal-body/div/slot/div/div[2]/div[1]/div[2]/div/lightning-input/lightning-primitive-input-simple/div/div/input")
+	public WebElement enterTxtWaTmp;
+	
+	// Send text in footer text field on WhatsApp Template  
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/c-create-whats-app-template/lightning-modal-body/div/slot/div/div[2]/div[2]/lightning-input/lightning-primitive-input-simple/div/div/input")
+	public WebElement enterFootTxt;
+	
+	// Click on next header button  
+	@FindBy(xpath="//button[normalize-space()='Next']")
+	public WebElement clickHeaderBtn;
+	
+	// Click on radio button as button interactive type  
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/c-create-whats-app-template/lightning-modal-body/div/slot/div/div[2]/div/div[1]/div/lightning-radio-group/fieldset/div/span[2]/label/span[1]")
+	public WebElement buttonRadBtn;
+	
+	// Click on label text field
+	@FindBy(xpath="/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/c-create-whats-app-template/lightning-modal-body/div/slot/div/div[2]/div/div[2]/div/lightning-input/lightning-primitive-input-simple/div/div/input")
+	public WebElement selectLabeltxt;
+	
+	// Click on finish button 
+	@FindBy(xpath="//button[normalize-space()='Finish']")
+	public WebElement finishBtn;
 	
 	/**
 	 * @description           This method clicks on the Template Type Dropdown combobox
@@ -136,20 +164,24 @@ public class SalesforceWebElement {
 		}
 	}
 	
-	
-	public void selectAttributeName(){
+	/**
+	 * @description           This method select Template Type dropdown combobox value
+	 * @methodname            selectTemplateType
+	 * @author                Raghavendra Kadam
+	 * @params                None
+	 * @return                void
+	 */
+	public void selectAttributeName() {
 		try {
-			attributeNameValue.click();
-			Reporter.log("Contact Name field Selected");
+			attrName.click();
+			Reporter.log("Asst. Phone is being Selected");
 		} catch (Exception e) {
-			Reporter.log("Unable to select Contact field ::"+e.getMessage());
+			Reporter.log("Unable to Asst. Phone ::"+e.getMessage());
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
-	
 	
 	/**
 	 * @description           This method clicks on New button
@@ -197,7 +229,7 @@ public class SalesforceWebElement {
 	 */
 	public void enterNameText() {
 		try {
-			nameTextBox.sendKeys("Test Name");
+			nameTextBox.sendKeys("Test1");
 			Reporter.log("Text is send");
 		} catch (Exception e) {
 			Reporter.log("Unable to send Text ::"+e.getMessage());
@@ -304,10 +336,10 @@ public class SalesforceWebElement {
 	 */
 	public void isCombobxValueSelected() {
 		try {
-			selectComboboxValue.click();
-			Reporter.log("Dropdown combobox value is being selected");
+			selectComboboxObj.click();
+			Reporter.log("Dropdown combobox object is being selected");
 		} catch (Exception e) {
-			Reporter.log("Unable to select dropdown combobox value ::"+e.getMessage());
+			Reporter.log("Unable to select dropdown combobox object ::"+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -325,6 +357,106 @@ public class SalesforceWebElement {
 			Reporter.log("Add button on WhatSapp communication channel is being clicked");
 		} catch (Exception e) {
 			Reporter.log("Unable to select WhatsApp as communication channel ::"+e.getMessage());
+			e.printStackTrace();
+		}
+	}	
+
+	public void isInsertAttributeButtonClicked() {
+		try {
+			insertAttBtn.click();
+			Reporter.log("Insert Attribute button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click Insert Attribute button :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void isNextWATemplateBtnClicked() {
+		try {
+			nextBtnWATmp.click();
+			Reporter.log("Next button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click next button :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void isTextRadioButtonClicked() {
+		try {
+			txtRadioBtn.click();
+			Reporter.log("Text radio button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click Text radio button :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void enterTextWATemplate(){
+		try {
+			enterTxtWaTmp.sendKeys("Test Text");
+			Reporter.log("Send text is successfull in WhatsApp enter text field");
+		} catch (Exception e) {
+			Reporter.log("Unable to send text in WhatsApp enter Text :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void enterFooterText() {
+		try {
+			enterFootTxt.sendKeys("Test Footer");
+			Reporter.log("Send footer text is successful");
+		}catch (Exception e) {
+			Reporter.log("Unable to send text in footer :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void isNextWAHeaderButtonClicked() {
+		try {
+			clickHeaderBtn.click();
+			Reporter.log("Next Header button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click next header button :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void isWAIntTempRadioButtonClicked() {
+		try {
+			buttonRadBtn.click();
+			Reporter.log("Button as interactive type radio button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click Button as interactive type :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void selectLabelTextField() {
+		try {
+			selectLabeltxt.click();
+			Reporter.log("Select label text field is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click select label text field :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void enterTextInLabelTextField() {
+		try {
+			selectLabeltxt.sendKeys("Test Label");
+			Reporter.log("Enter text in label text field is successful");
+		} catch (Exception e) {
+			Reporter.log("Unable to enter text in label text :: "+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void isFinishButtonClicked() {
+		try {
+			finishBtn.click();
+			Reporter.log("Finish button is being clicked");
+		} catch (Exception e) {
+			Reporter.log("Unable to click finish button :: "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
